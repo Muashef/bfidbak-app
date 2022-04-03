@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
@@ -9,7 +10,7 @@ const userSchema = new mongoose.Schema({
   },
   designation: {
     type: String,
-    enum: ['AM', 'Team Lead', 'IT', 'Engineering', 'Management'],
+    enum: ['AM', 'Team Lead', 'IT', 'Engineering', 'Management', 'Admin'],
     required: [true, 'please provide your role'],
   },
   email: {
@@ -17,6 +18,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: [true, 'kindly provide your bfree mail to sign up'],
     validate: [validator.isEmail, 'kindly provide a valide bfreemail'],
+
     // i still neeed to add vildator
   },
   bfreeID: {
@@ -30,7 +32,7 @@ const userSchema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
-  confirmPassword: {
+  passwordConfirm: {
     type: String,
     required: [true, 'Please confirm your password'],
     validate: {

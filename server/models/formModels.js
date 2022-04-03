@@ -1,11 +1,16 @@
 const req = require('express/lib/request');
 const mongoose = require('mongoose');
 
+const Review = require('./reviewModels');
+
 const formSchema = new mongoose.Schema({
   sender: {
     type: String,
-    required: true,
-    default: req.params.user.name,
+    // required: true,
+  },
+  bfreeID: {
+    type: String,
+    // default: req.user.bfreeID
   },
   to: {
     type: String,
@@ -47,26 +52,31 @@ const formSchema = new mongoose.Schema({
   timeToResolve: {
     type: Number,
   },
+  ratings: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: Review,
+  },
 });
 
 formSchema.pre('save', function (next) {
-  if (!this.isModified('resolution')) return next;
+  if (this.isModified('resolution')) this.dateResolved = Date.now;
 
-  this.dateResolved = Date.now;
-});
-
-formSchema.pre('save', function (next) {
-  if (!this.isModified('resolutiion')) return next;
-
-  this.resolved = true;
   next();
 });
 
 formSchema.pre('save', function (next) {
-  if (!this.isModified('resolutiion')) return next;
+  if (this.isModified('resolutiion')) this.resolved = true;
 
-  this.timeToResolve = datesubmited - dateResolved;
   next();
 });
+
+formSchema.pre('save', function (next) {
+  if (this.isModified('resolutiion'))
+    this.timeToResolve = datesubmited - dateResolved / 1000 / 60;
+
+  next();
+});
+
 const Form = mongoose.model('Form', formSchema);
+
 module.exports = Form;
