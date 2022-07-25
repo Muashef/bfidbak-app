@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(./img/bg-intro-desktop.png);
+    background-color: hsl(0, 100%, 74%) ;
+}
+
+.container{
+    margin: 0 80px;
+}
+
+.main-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+}
+
+
+.text-section{
+    padding: 100px 0;
+    width: 40%;
+    /* height: 300px; */
+}
+
+.text-section h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: poppins;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.text-section p{
+    color: #fff;
+    font-size: 15px;
+    font-family: poppins;
+}
+
+.form-section{
+    width: 45%;
+    margin-top: 45px;
+    margin-left: 30px;
+}
+
+.form-header{
+    background: hsl(248, 32%, 49%);
+    padding: 15px 35px;
+    font-family: poppins;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+form{
+    background-color: #fff;
+    padding: 45px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    font-size: 15px;
+    font-family: poppins;
+    margin-bottom: 20px;
+}
+
+.trial{
+    text-align: center;
+    /* background: hsl(154, 59%, 51%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 15px; */
+}
+
+.trial a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-family: poppins;
+    text-transform: uppercase;
+}
+.trial button{
+    text-decoration: none;
+    color: #fff;
+    background: hsl(154, 59%, 51%);
+    width:100%;
+    font-size: 15px;
+    font-family: poppins;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-bottom: 15px;
+}
+
+
+.foot{
+    text-align: center;
+}
+
+.foot{
+    font-family: poppins;
+    color: hsl(246, 25%, 77%);
+    font-size: 10px;
+}
+
+@media (max-width: 768px){
+    .text-section{
+        width: 68%;
+        text-align: center;
+    }
+
+    .form-section{
+        width: 80%; 
+        margin-top: 5px;     
+   }
+
+    .main-section{
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width: 375px){
+    .text-section{
+        width: 89%;
+        text-align: center;
+    }
+    input{
+        width: 100%;
+    }
+
+    .form-section{
+        width: 80%;      
+   }
+
+}
